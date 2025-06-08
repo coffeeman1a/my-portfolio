@@ -1,13 +1,21 @@
-import './App.css';
-import { NavBar } from './components/NavBar';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/layout';
+import './App.scss';
+import Home from './components/home';
+import About from './components/about';
+import Contact from './components/contact';
 
 function App() {
   return (
-    <div>
-      <NavBar />
-      <h1>Привет мир!</h1>
-      <p>Я начинающий разработчик, и это мой сайт-визитка 👨‍💻</p>
-    </div>
+    <>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+      </Route>
+    </Routes>
+    </>
   );
 }
 
